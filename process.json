@@ -1,0 +1,4 @@
+{
+  "watch": true,
+  "ignore_watch" : ["assets/endpoints/tnrd/images"],
+}

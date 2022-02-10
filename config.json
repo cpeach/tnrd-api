@@ -1,0 +1,20 @@
+{
+    "credentials": {
+        "tenantID": "44b9a719-7c76-4983-908c-0bc86967d79d",
+        "clientID": "665e2278-7eb9-4c56-ba1e-356355b32e38",
+        "audience": "665e2278-7eb9-4c56-ba1e-356355b32e38"
+    },
+    "resource": {
+        "scope": ["User.Read"]
+    },
+    "metadata": {
+        "authority": "login.microsoftonline.com",
+        "discovery": ".well-known/openid-configuration",
+        "version": "v2.0"
+    },
+    "settings": {
+        "validateIssuer": true,
+        "passReqToCallback": false,
+        "loggingLevel": "trace"
+    }
+}
