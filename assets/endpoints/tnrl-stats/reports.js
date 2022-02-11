@@ -279,9 +279,7 @@ module.exports = {
 							}
 						})
 					}) */
-					//console.log(values);
-					//console.log(locations)
-				
+
 				// 	params 
 					let params        = {title: "General People Report"};
 				
@@ -290,7 +288,6 @@ module.exports = {
 					for(let column in r.conf.months){
 						params.columns.push({label:r.conf.months[column],key:column})
 					}
-					//console.log(params.columns);
 
 				//	categories
 					params.categories = [];
@@ -298,23 +295,52 @@ module.exports = {
 
 				//	items	
 					params.items  = [];
-					params.items  = locations.map(item=>({label:item.name,parent:p.year,key:item._id}));
+					params.items  = locations.map(item=>({label:item.name,parent:p.year,key:item._id.toString()}));
 				
 				//	values
 					params.values = [];
-					//console.log('//////here');
-					params.values = values.map((value)=>{
-						return {
-						label:value.value,
-						default:0,
-						column:value.date.toISOString().split("-")[1],
-						parent:value.location
+					let totals = [];
+					for(let i=0;i<values.length;i++){
+						if(totals[values[i].location] == undefined){
+						totals[values[i].location] = {
+							"01":0,
+							"02":0,
+							"03":0,
+							"04":0,
+							"05":0,
+							"06":0,
+							"07":0,
+							"08":0,
+							"09":0,
+							"10":0,
+							"11":0,
+							"12":0
 						};
-						});				 
- 
+						}
+
+						totals[values[i].location][values[i].date.toISOString().split("-")[1]] = parseInt(totals[values[i].location][values[i].date.toISOString().split("-")[1]]) + parseInt(values[i].value);
+
+					}			
+
+					params.values = [];
+					for (let [location_key, location] of Object.entries(totals)){
+						for (let [month_key, month]  of  Object.entries(location)){
+							params.values.push({
+								label:month,
+								default:0,
+								column:month_key,
+								parent:location_key
+							})
+						}
+					};
+
+
+
 					return params;
 
 				},
+
+				
 
 				build : async(r,p,c)=>{
 					let params = await r.general.people.query(r,p);
