@@ -27,7 +27,7 @@ module.exports = {
 	
 	init : function(r,p){
     
-   r.db = mongoose.createConnection(process.env.mongo'+tnrl-patron-reg',{useNewUrlParser:true,useUnifiedTopology:true,useCreateIndex:true});
+   r.db = mongoose.createConnection(process.env.mongo+'tnrl-patron-reg',{useNewUrlParser:true,useUnifiedTopology:true,useCreateIndex:true});
     
     
     r.models = {};

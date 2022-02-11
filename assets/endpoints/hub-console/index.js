@@ -25,7 +25,7 @@ module.exports = {
 
 	init : function(r){
 
-		r.db = mongoose.createConnection(process.env.mongo'+tnrd-hub',{useNewUrlParser:true,useUnifiedTopology:true,useCreateIndex:true});
+		r.db = mongoose.createConnection(process.env.mongo+'tnrd-hub',{useNewUrlParser:true,useUnifiedTopology:true,useCreateIndex:true});
 		
 		r.models = {};
 		r.models.profiles = models.profiles(r.db);

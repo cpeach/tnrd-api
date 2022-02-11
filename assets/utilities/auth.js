@@ -4,7 +4,7 @@ const models   = require('../endpoints/hub-console/models.js');
 
 const { promises: fs } = require("fs");
 
-const db = mongoose.createConnection(process.env.mongo'+tnrd-hub',{useNewUrlParser:true,useUnifiedTopology:true,useCreateIndex:true});
+const db = mongoose.createConnection(process.env.mongo+'tnrd-hub',{useNewUrlParser:true,useUnifiedTopology:true,useCreateIndex:true});
 const profiles = models.profiles(db);
 const cachePath = "./cache.json";
 const beforeCacheAccess = async (cacheContext) => {

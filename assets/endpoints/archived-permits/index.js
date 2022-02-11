@@ -16,7 +16,7 @@ module.exports = {
 
 	init : function(r){
 
-		r.db = mongoose.createConnection(process.env.mongo'+hub-archived-permits',{useNewUrlParser:true,useUnifiedTopology:true,useCreateIndex:true});
+		r.db = mongoose.createConnection(process.env.mongo+'hub-archived-permits',{useNewUrlParser:true,useUnifiedTopology:true,useCreateIndex:true});
 		
 		r.models = {};
 		r.models.planning_records = models.planning_records(r.db);

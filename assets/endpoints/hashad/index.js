@@ -22,7 +22,7 @@ module.exports = {
 
 	init : function(r){
 
-		r.db = mongoose.createConnection(process.env.mongo'+hub-hashad',{useNewUrlParser:true,useUnifiedTopology:true,useCreateIndex:true});
+		r.db = mongoose.createConnection(process.env.mongo+'hub-hashad',{useNewUrlParser:true,useUnifiedTopology:true,useCreateIndex:true});
 		
 		r.models = {};
 		r.models.hashad   = models.hashad(r.db);

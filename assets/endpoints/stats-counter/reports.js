@@ -21,7 +21,7 @@ module.exports = {
 
 	init : function(r){
 
-		r.db = mongoose.createConnection(process.env.mongo'+hub-stats-counter',{useNewUrlParser:true,useUnifiedTopology:true,useCreateIndex:true});
+		r.db = mongoose.createConnection(process.env.mongo+'hub-stats-counter',{useNewUrlParser:true,useUnifiedTopology:true,useCreateIndex:true});
 		
 		r.models = {};
 		r.models.departments  = models.departments(r.db);
