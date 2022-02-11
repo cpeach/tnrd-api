@@ -22,7 +22,7 @@ module.exports = {
 	
 //	INIT
 	init : function(r,p,c){
-		r.db = mongoose.createConnection('mongodb://localhost/'+r.data.mongo.db,r.data.mongo.options);
+		r.db = mongoose.createConnection(process.env.mongo+r.data.mongo.db,r.data.mongo.options);
 		
 		r.models = {};
 		r.models.application = application_model.get(r.db);

@@ -15,7 +15,7 @@ module.exports = {
 
 	init : function(r){
 
-		r.db = mongoose.createConnection('mongodb://localhost/hub-tnrl-stats',{useNewUrlParser:true,useUnifiedTopology:true,useCreateIndex:true});
+		r.db = mongoose.createConnection(process.env.mongo'+hub-tnrl-stats',{useNewUrlParser:true,useUnifiedTopology:true,useCreateIndex:true});
 		
 		r.models = {};
 		r.models.wifi_locations = models.wifi_locations(r.db);

@@ -22,7 +22,7 @@ module.exports = {
 	
 	init : function(r){
 
-		r.db = mongoose.createConnection('mongodb://localhost/'+r.data.mongo.db,r.data.mongo.options);
+		r.db = mongoose.createConnection(process.env.mongo+r.data.mongo.db,r.data.mongo.options);
 		
 		r.sierra = sierra;
 		r.alexandria = alexandria;

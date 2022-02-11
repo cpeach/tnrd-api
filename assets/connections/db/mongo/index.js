@@ -11,7 +11,7 @@ module.exports = {
 	
 	run : function(r,p,c){
 		var params = p;
-		mongodb.MongoClient.connect("mongodb://localhost:27017",{useUnifiedTopology: true, useNewUrlParser: true },function(e,client) {
+		mongodb.MongoClient.connect(process.env.mongo,{useUnifiedTopology: true, useNewUrlParser: true },function(e,client) {
 			var db = client.db(params[0]);
 			var collection = db.collection(params[1]);
 			c(client,collection);

@@ -19,7 +19,7 @@ module.exports = {
 
 	init : function(r){
 
-		r.db = mongoose.createConnection('mongodb://localhost/hub-expiring-patrons',{useNewUrlParser:true,useUnifiedTopology:true,useCreateIndex:true});
+		r.db = mongoose.createConnection(process.env.mongo'+hub-expiring-patrons',{useNewUrlParser:true,useUnifiedTopology:true,useCreateIndex:true});
 		
 		r.models = {};
 		r.models.notified  = models.notified(r.db);
